@@ -42,14 +42,14 @@ app.get('/users', (req, res) => {
   res.status(200).json(db.users);
 });
 
-app.post('/signin', (req, res) => {
+app.post('/login', (req, res) => {
   // Load hash from your password DB.
-  bcrypt.compare('bacon', hash, function (err, res) {
-    // res == true
-  });
-  bcrypt.compare('veggies', hash, function (err, res) {
-    // res = false
-  });
+  // bcrypt.compare('bacon', hash, function (err, res) {
+  //   // res == true
+  // });
+  // bcrypt.compare('veggies', hash, function (err, res) {
+  //   // res = false
+  // });
   if (
     req.body.email === db.users[0].email &&
     req.body.password === db.users[0].password
@@ -58,7 +58,7 @@ app.post('/signin', (req, res) => {
   } else {
     res.status(404).json('error logging in');
   }
-  res.json('Sign in');
+  res.json('Login');
 });
 
 app.post('/register', (req, res) => {
