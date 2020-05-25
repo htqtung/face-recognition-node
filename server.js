@@ -58,7 +58,6 @@ app.post('/login', (req, res) => {
   } else {
     res.status(404).json('error logging in');
   }
-  res.json('Login');
 });
 
 app.post('/register', (req, res) => {
