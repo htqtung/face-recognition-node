@@ -54,7 +54,7 @@ app.post('/login', (req, res) => {
     req.body.email === db.users[0].email &&
     req.body.password === db.users[0].password
   ) {
-    res.json('success').status(200);
+    res.json(db.users[0]).status(200);
   } else {
     res.status(404).json('error logging in');
   }
@@ -64,9 +64,9 @@ app.post('/login', (req, res) => {
 app.post('/register', (req, res) => {
   const { email, name, password } = req.body;
 
-  bcrypt.hash(password, null, null, function (err, hash) {
-    const hashedPass = hash;
-  });
+  // bcrypt.hash(password, null, null, function (err, hash) {
+  //   const hashedPass = hash;
+  // });
   db.users.push({
     id: '125',
     name,
